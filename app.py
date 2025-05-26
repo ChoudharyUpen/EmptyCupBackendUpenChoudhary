@@ -3,9 +3,9 @@ from flask import Flask, send_from_directory
 
 app = Flask(__name__, static_folder="static")
 
-@app.route("/")
-def home():
-    return send_from_directory('templates', 'index.html')  # index.html ko templates folder me rakho
+# @app.route("/")
+# def home():
+#     return send_from_directory('templates', 'index.html')  # index.html ko templates folder me rakho
 
 @app.route("/listings")
 def get_listings():
