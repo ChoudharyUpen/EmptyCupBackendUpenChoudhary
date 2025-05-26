@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmptyCup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+  <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="Logo" class="logo" />
+  <h1 class="center-title">EmptyCup</h1>
+  <i class="fas fa-ellipsis-v menu-icon"></i>
+</header>
+   <nav class="tabs">
+  <div class="tabs-left">
+    <div class="tab active">
+      <img src="{{ url_for('static', filename='assets/contacts.svg') }}" alt="Contacts" class="tab-icon" />
+    </div>
+    <div class="tab">
+      <img src="{{ url_for('static', filename='assets/gallery.svg') }}" alt="Gallery" class="tab-icon" />
+    </div>
+    <div class="tab">
+      <img src="{{ url_for('static', filename='assets/map.svg') }}" alt="Map" class="tab-icon" />
+    </div>
+  </div>
+
+  <div class="tabs-right">
+    <div class="tab shortlisted-toggle">
+      <img src="{{ url_for('static', filename='assets/shortlisted.svg') }}" alt="Shortlisted" class="tab-icon" />
+    </div>
+    <div class="tab">
+      <img src="{{ url_for('static', filename='assets/sort.svg') }}" alt="Sort" class="tab-icon" />
+    </div>
+  </div>
+</nav>
+    <main>
+      <section class="card" data-shortlisted="false" style=" background-color: #FFFCF2">
+          <div class="left-content">
+        <div class="card-header" >
+          <h2>Epic Designs</h2>
+   <div >
+      <img src="{{ url_for('static', filename='assets/star1.svg') }}" alt="Sort" class="tab-icon" />
+    </div>
+</div>
+        </div>
+        <p>
+          Passionate team of 4 designers working out of Bangalore with an
+          experience of 4 years.
+        </p>
+        <div class="stats">
+          <div><strong>57</strong><span>Projects</span></div>
+          <div><strong>8</strong><span>Years</span></div>
+          <div><strong>$$</strong><span>Price</span></div>
+        </div>
+        <div class="contact">
+          <p>+91 - 984532853</p>
+          <p>+91 - 984532854</p>
+        </div>
+        </div>
+          <div class="right-actions">
+  <div class="action-icons"> 
+  <img src="{{ url_for('static', filename='assets/details.svg') }}" alt="Details" class="action-icon" />
+  <img src="{{ url_for('static', filename='assets/detailsname.svg') }}" alt="Details Name" class="action-icon" />
+  
+  <img src="{{ url_for('static', filename='assets/hide.svg') }}" alt="Hide" class="action-icon" />
+  <img src="{{ url_for('static', filename='assets/hidename.svg') }}" alt="Hide Name" class="action-icon" />
+  
+  <img src="{{ url_for('static', filename='assets/shortlist.svg') }}" alt="Shortlist" class="shortlist-btn" />
+  <img src="{{ url_for('static', filename='assets/shortlistname.svg') }}" alt="Shortlist Name" class="action-icon" />
+  
+  <img src="{{ url_for('static', filename='assets/report.svg') }}" alt="Report" class="action-icon" />
+  <img src="{{ url_for('static', filename='assets/reportname.svg') }}" alt="Report Name" class="action-icon" />
+</div>
+</div>
+      </section>
+      <section class="card" data-shortlisted="false">
+         <div class="left-content">
+        <div class="card-header">
+          <h2>Studio - D3</h2>
+           <div >
+      <img src="{{ url_for('static', filename='assets/star2.svg') }}" alt="Sort" class="tab-icon" />
+    </div>
+        </div>
+        <p>
+          Passionate team of 4 designers working out of Bangalore with an
+          experience of 4 years.
+        </p>
+        <div class="stats">
+          <div><strong>43</strong><span>Projects</span></div>
+          <div><strong>6</strong><span>Years</span></div>
+          <div><strong>$$$</strong><span>Price</span></div>
+        </div>
+        <div class="contact">
+          <p>+91 - 984532853</p>
+          <p>+91 - 984532854</p>
+        </div>
+        </div>
+        <div class="right-actions"></div>
+  <div class="action-icons"> 
+  <img src="{{ url_for('static', filename='assets/details.svg') }}" alt="Details" class="action-icon" />
+  <img src="{{ url_for('static', filename='assets/detailsname.svg') }}" alt="Details Name" class="action-icon" />
+  
+  <img src="{{ url_for('static', filename='assets/hide.svg') }}" alt="Hide" class="action-icon" />
+  <img src="{{ url_for('static', filename='assets/hidename.svg') }}" alt="Hide Name" class="action-icon" />
+  
+  <img src="{{ url_for('static', filename='assets/shortlist.svg') }}" alt="Shortlist" class="shortlist-btn" />
+  <img src="{{ url_for('static', filename='assets/shortlistname.svg') }}" alt="Shortlist Name" class="action-icon" />
+  
+  <img src="{{ url_for('static', filename='assets/report.svg') }}" alt="Report" class="action-icon" />
+  <img src="{{ url_for('static', filename='assets/reportname.svg') }}" alt="Report Name" class="action-icon" />
+</div>
+</div>
+      </section>
+    </main>
+  <script>
+  const shortlistToggle = document.querySelector(".shortlisted-toggle");
+  let filterOn = false;
+
+  // Filter toggle button
+  shortlistToggle.addEventListener("click", () => {
+    filterOn = !filterOn;
+    shortlistToggle.classList.toggle("active");
+    applyShortlistFilter();
+  });
+
+  function applyShortlistFilter() {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card) => {
+      if (filterOn) {
+        if (card.dataset.shortlisted === "true") {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      } else {
+        card.style.display = "block";
+      }
+    });
+  }
+
+  async function loadListings() {
+    const res = await fetch("/listings");
+    const listings = await res.json();
+
+    const main = document.querySelector("main");
+    main.innerHTML = "";
+
+    listings.forEach((item, index) => {
+      console.log(item.name, item.stars);
+
+      const card = document.createElement("section");
+      card.className = "card";
+      card.dataset.shortlisted = "false"; // Default value
+      if (index === 0) {
+        card.style.backgroundColor = "#FFFCF2";
+      }
+      card.innerHTML = `
+       <div class="left-content">
+        <div class="card-header">
+          <h2>${item.name}</h2>
+          <div class="stars">
+  <img src="/static/assets/star1.svg" alt="Rating" class="tab-icon" />
+</div>
+        </div>
+        <p>${item.description}</p>
+        <div class="stats">
+          <div><strong>${item.projects}</strong><span>Projects</span></div>
+          <div><strong>${item.years}</strong><span>Years</span></div>
+          <div><strong>${item.price}</strong><span>Price</span></div>
+        </div>
+        <div class="contact">
+          <p>${item.phone1}</p>
+          <p>${item.phone2}</p>
+        </div>
+          </div>
+          <div class="right-actions">
+       <div class="action-icons">
+      <img src="/static/assets/details.svg" alt="Details" class="action-icon" />
+      <img src="/static/assets/detailsname.svg" alt="Details Name" class="action-icon" />
+
+      <img src="/static/assets/hide.svg" alt="Hide" class="action-icon" />
+      <img src="/static/assets/hidename.svg" alt="Hide Name" class="action-icon" />
+
+      <img src="/static/assets/shortlis.svg" alt="Shortlist" class="shortlist-btn" />
+      <img src="/static/assets/shortlistname.svg" alt="Shortlist Name" class="action-icon" />
+
+      <img src="/static/assets/report.svg" alt="Report" class="action-icon" />
+      <img src="/static/assets/reportname.svg" alt="Report Name" class="action-icon" />
+    </div>
+  </div>
+`;
+      main.appendChild(card);
+    });
+
+    attachShortlistListeners();
+  }
+
+  function attachShortlistListeners() {
+    const shortlistBtns = document.querySelectorAll(".shortlist-btn");
+
+    shortlistBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const card = btn.closest(".card");
+        const shortlisted = card.dataset.shortlisted === "true";
+
+        card.dataset.shortlisted = shortlisted ? "false" : "true";
+
+        btn.src = shortlisted
+          ? "/static/assets/shortlis.svg"
+          : "/static/assets/shortlist-filled.svg";
+
+        if (filterOn) {
+          applyShortlistFilter();
+        }
+      });
+    });
+  }
+
+  window.onload = loadListings;
+</script>
+  </body>
+</html>
